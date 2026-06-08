@@ -95,4 +95,39 @@ describe("tool execution", () => {
     expect(args![0]).toBe("GET");
     expect(args![1]).toBe("/connectors/7");
   });
+
+  test("list_investments chama GET /investments com query", async () => {
+    await mcpClient.callTool({
+      name: "list_investments",
+      arguments: { itemId: "abc-123", type: "FIXED_INCOME" },
+    });
+
+    const calls = mockClient.pluggyRequest.mock.calls;
+    expect(calls.length).toBe(1);
+
+    const args = calls[0];
+    expect(args).toBeDefined();
+    expect(args![0]).toBe("GET");
+    expect(args![1]).toBe("/investments");
+    expect((args![2] as any)?.query).toEqual({
+      itemId: "abc-123",
+      type: "FIXED_INCOME",
+    });
+  });
+
+  test("list_investment_transactions chama GET /investments/{id}/transactions", async () => {
+    await mcpClient.callTool({
+      name: "list_investment_transactions",
+      arguments: { id: "inv-42", page: 2 },
+    });
+
+    const calls = mockClient.pluggyRequest.mock.calls;
+    expect(calls.length).toBe(1);
+
+    const args = calls[0];
+    expect(args).toBeDefined();
+    expect(args![0]).toBe("GET");
+    expect(args![1]).toBe("/investments/inv-42/transactions");
+    expect((args![2] as any)?.query).toEqual({ page: 2 });
+  });
 });

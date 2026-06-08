@@ -163,6 +163,42 @@ export function registerTools(
     async (args) => ok(await pluggyRequest("GET", "/identity", { query: args }))
   );
 
+  // ---------- investments ----------
+
+  server.tool(
+    "list_investments",
+    "List investments collected for an item. Pluggy endpoint: GET /investments?itemId=...",
+    {
+      itemId: z.string().describe("Parent item id (uuid)"),
+      type: z
+        .enum(["COE", "EQUITY", "ETF", "FIXED_INCOME", "MUTUAL_FUND", "SECURITY", "OTHER"])
+        .optional()
+        .describe("Filter by investment type"),
+      page: z.number().optional().describe("Page number (default 1)"),
+      pageSize: z.number().optional().describe("Page size (default 500)"),
+    },
+    async (args) => ok(await pluggyRequest("GET", "/investments", { query: args }))
+  );
+
+  server.tool(
+    "get_investment",
+    "Fetch a single investment by id. Pluggy endpoint: GET /investments/{id}.",
+    { id: z.string().describe("Investment id (uuid)") },
+    async ({ id }) => ok(await pluggyRequest("GET", `/investments/${id}`))
+  );
+
+  server.tool(
+    "list_investment_transactions",
+    "List transactions for a specific investment. Pluggy endpoint: GET /investments/{id}/transactions.",
+    {
+      id: z.string().describe("Investment id (uuid)"),
+      page: z.number().optional().describe("Page number (default 1)"),
+      pageSize: z.number().optional().describe("Page size (default 500)"),
+    },
+    async ({ id, ...query }) =>
+      ok(await pluggyRequest("GET", `/investments/${id}/transactions`, { query }))
+  );
+
   // ---------- payments (PISP) ----------
 
   server.tool(

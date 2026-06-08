@@ -19,6 +19,9 @@ const EXPECTED_TOOLS = [
   "list_transactions",
   "get_transaction",
   "list_identities",
+  "list_investments",
+  "get_investment",
+  "list_investment_transactions",
   "create_payment_intent",
   "get_payment_intent",
 ];
@@ -39,10 +42,10 @@ async function setupServer() {
 }
 
 describe("tool registration", () => {
-  test("list_tools retorna 15 tools", async () => {
+  test("list_tools retorna 18 tools", async () => {
     const mcpClient = await setupServer();
     const { tools } = await mcpClient.listTools();
-    expect(tools.length).toBe(15);
+    expect(tools.length).toBe(18);
   });
 
   test("todas as tools têm nome e descrição non-empty", async () => {
@@ -70,5 +73,16 @@ describe("tool registration", () => {
     expect(props).toHaveProperty("types");
     expect(props).toHaveProperty("countries");
     expect(props).toHaveProperty("sandbox");
+  });
+
+  test("list_investments schema tem propriedades esperadas", async () => {
+    const mcpClient = await setupServer();
+    const { tools } = await mcpClient.listTools();
+    const tool = tools.find((t) => t.name === "list_investments")!;
+    const props = tool.inputSchema.properties ?? {};
+    expect(props).toHaveProperty("itemId");
+    expect(props).toHaveProperty("type");
+    expect(props).toHaveProperty("page");
+    expect(props).toHaveProperty("pageSize");
   });
 });

@@ -68,16 +68,15 @@ A Pluggy disponibiliza conectores sandbox (`Pluggy Bank`, `BR · Pluggy Bank`) q
 
 ## Créditos
 
-Este projeto é um fork estendido do [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-pluggy) (MIT), mantendo toda a funcionalidade original dos 15 tools MCP para a API Pluggy. Agradecimentos à [CodeSpar](https://codespar.dev) pelo trabalho base.
-
-> **Observação:** A API Pluggy não possui endpoint para listar todos os items (`GET /items`). A tool `list_items` foi removida por não ser suportada.
+Este projeto é um fork estendido do [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-pluggy) (MIT), mantendo toda a funcionalidade original dos 18 tools MCP para a API Pluggy. Agradecimentos à [CodeSpar](https://codespar.dev) pelo trabalho base.
 
 ### Extensões em relação ao original
 
 - `list_investments` — recupera todos os investimentos de um item (`GET /investments`)
 - `get_investment` — recupera um investimento específico por ID (`GET /investments/{id}`)
+- `list_investment_transactions` — recupera todas as transações de um investimento (`GET /investments/{id}/transactions`)
 
-## Funcionalidades (15 tools)
+## Funcionalidades (18 tools)
 
 | Tool | Endpoint Pluggy | Descrição |
 |---|---|---|
@@ -94,6 +93,9 @@ Este projeto é um fork estendido do [`@codespar/mcp-pluggy`](https://www.npmjs.
 | `list_transactions` | `GET /transactions` | Transações de uma conta |
 | `get_transaction` | `GET /transactions/{id}` | Detalhes de uma transação |
 | `list_identities` | `GET /identity` | Dados cadastrais (CPF, nome, endereço) |
+| `list_investments` | `GET /investments` | Investimentos de um item |
+| `get_investment` | `GET /investments/{id}` | Detalhes de um investimento |
+| `list_investment_transactions` | `GET /investments/{id}/transactions` | Transações de um investimento |
 | `create_payment_intent` | `POST /payments/intents` | Inicia intent de pagamento |
 | `get_payment_intent` | `GET /payments/intents/{id}` | Status do payment intent |
 

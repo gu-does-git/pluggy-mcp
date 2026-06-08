@@ -1,19 +1,10 @@
 # pluggy-mcp
 
-MCP server for **Pluggy** — Open Finance Brasil aggregator (ITP/TPP).
+Servidor MCP para **Pluggy** — agregador Open Finance Brasil (ITP/TPP).
 
 Baseado no [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-pluggy) por [CodeSpar](https://codespar.dev), estendido com funcionalidades adicionais.
 
 > **Licença:** MIT — mantém os créditos ao trabalho original da CodeSpar.
-
-## Stack
-
-- **Runtime:** Bun
-- **Git hooks:** Husky
-- **Commit lint:** commitlint (conventional-changelog config)
-- **Commit prompts:** commitizen (cz-conventional-changelog)
-- **Commit emojis:** devmoji (auto-adiciona via hook)
-- **Secret detection:** secretlint
 
 ## Setup
 
@@ -21,57 +12,14 @@ Baseado no [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-
 bun install
 ```
 
-## Commands
+## Comandos
 
-| Command | Description |
-|---------|-------------|
-| `bun run commit` | Interactive commit via commitizen |
+| Comando | Descrição |
+|---------|-----------|
 | `bun run build` | Compila para Node.js (`dist/index.js`) |
 | `bun run start` | Roda o servidor MCP (`node dist/index.js`) |
-| `bun run secretlint` | Scan files for secrets |
-| `bun run commitlint` | Validate commit message format |
-
-## Git Hooks
-
-- **pre-commit** — runs `secretlint` on staged files
-- **commit-msg** — runs `devmoji` (adds emoji based on commit type) then `commitlint` (validates format)
-
-## Commit Convention
-
-Uses [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-<type>(<scope>): <description>
-
-feat: add user login
-fix: resolve timeout on large payloads
-chore: bump dependencies
-```
-
-Types: `feat`, `fix`, `chore`, `docs`, `style`, `refactor`, `perf`, `test`, `ci`, `build`.
-
-Use `bun run commit` for an interactive prompt that guides you through the format.
-
-## Devmoji Emoji Map
-
-Every commit gets an emoji automatically via the commit-msg hook. No need to manually add emojis — just write conventional commits and devmoji handles the rest.
-
-| Type | Emoji |
-|------|-------|
-| `feat` | ✨ |
-| `fix` | 🐛 |
-| `docs` | 📝 |
-| `chore` | 🔧 |
-| `refactor` | ♻️ |
-| `style` | 💄 |
-| `perf` | ⚡ |
-| `test` | ✅ |
-| `ci` | 👷 |
-| `build` | 📦 |
-
-## Secretlint
-
-Secretlint runs on every commit to prevent accidental exposure of credentials, tokens, and keys. Configure rules in `.secretlintrc.json`.
+| `bun run test` | Roda os testes automatizados |
+| `bun run inspect` | Abre o MCP Inspector (UI interativa no navegador) |
 
 ## Créditos
 
@@ -79,12 +27,12 @@ Este projeto é um fork estendido do [`@codespar/mcp-pluggy`](https://www.npmjs.
 
 ### Extensões em relação ao original
 
-- `list_investments` — recupera todos os investimentos de um item (endpoint `GET /investments`)
+- `list_investments` — recupera todos os investimentos de um item (`GET /investments`)
 - `get_investment` — recupera um investimento específico por ID (`GET /investments/{id}`)
 
 ## Funcionalidades Originais (16 tools)
 
-| Tool | Pluggy endpoint | Descrição |
+| Tool | Endpoint Pluggy | Descrição |
 |---|---|---|
 | `list_connectors` | `GET /connectors` | Lista conectores (bancos) |
 | `get_connector` | `GET /connectors/{id}` | Detalhes de um conector |
@@ -110,8 +58,8 @@ bun run build
 npm publish
 ```
 
-`npx pluggy-mcp` funcionará em qualquer máquina com Node.js instalado.
+`npx pluggy-mcp` funciona em qualquer máquina com Node.js instalado.
 
-## License
+## Licença
 
-MIT — see [LICENSE](LICENSE).
+MIT — veja [LICENSE](LICENSE).

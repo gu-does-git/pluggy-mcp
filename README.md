@@ -1,4 +1,4 @@
-# pluggy-mcp
+# @gu-does-packages/pluggy-mcp
 
 Servidor MCP para **[Pluggy](https://pluggy.ai)** — agregador Open Finance Brasil (ITP/TPP).
 
@@ -17,7 +17,8 @@ bun install
 ### Via npx (recomendado)
 
 ```bash
-npx pluggy-mcp
+```bash
+npx @gu-does-packages/pluggy-mcp
 ```
 
 ### Claude Desktop
@@ -29,7 +30,7 @@ Adicione ao `claude_desktop_config.json`:
   "mcpServers": {
     "pluggy": {
       "command": "npx",
-      "args": ["pluggy-mcp"],
+      "args": ["@gu-does-packages/pluggy-mcp"],
       "env": {
         "PLUGGY_CLIENT_ID": "seu-client-id",
         "PLUGGY_CLIENT_SECRET": "seu-client-secret"
@@ -106,7 +107,7 @@ bun run build
 npm publish
 ```
 
-`npx pluggy-mcp` funciona em qualquer máquina com Node.js instalado.
+`npx @gu-does-packages/pluggy-mcp` funciona em qualquer máquina com Node.js instalado.
 
 ## Licença
 

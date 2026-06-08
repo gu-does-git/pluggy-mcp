@@ -18,6 +18,15 @@
     "typescript": "^5"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "commit": "cz",
+    "devmoji": "devmoji",
+    "secretlint": "secretlint",
+    "commitlint": "commitlint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }

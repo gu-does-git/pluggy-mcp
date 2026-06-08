@@ -12,6 +12,51 @@ Baseado no [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-
 bun install
 ```
 
+## Quick Start
+
+### Via npx (recomendado)
+
+```bash
+npx pluggy-mcp
+```
+
+### Claude Desktop
+
+Adicione ao `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "pluggy": {
+      "command": "npx",
+      "args": ["pluggy-mcp"],
+      "env": {
+        "PLUGGY_CLIENT_ID": "seu-client-id",
+        "PLUGGY_CLIENT_SECRET": "seu-client-secret"
+      }
+    }
+  }
+}
+```
+
+### Cursor / VS Code
+
+Mesma configuração em `.cursor/mcp.json` ou no JSON de MCP do VS Code.
+
+## Autenticação
+
+Pluggy usa OAuth2 client-credentials. Obtenha suas credenciais no [dashboard da Pluggy](https://dashboard.pluggy.ai).
+
+| Variável | Obrigatório | Descrição |
+|---|---|---|
+| `PLUGGY_CLIENT_ID` | sim | Client ID do dashboard |
+| `PLUGGY_CLIENT_SECRET` | sim | Client Secret do dashboard |
+| `PLUGGY_API_BASE` | não | URL base da API (default `https://api.pluggy.ai`) |
+
+### Sandbox
+
+A Pluggy disponibiliza conectores sandbox (`Pluggy Bank`, `BR · Pluggy Bank`) que funcionam com o mesmo endpoint de produção. Use `list_connectors` com `sandbox: true` para listá-los.
+
 ## Comandos
 
 | Comando | Descrição |

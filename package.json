@@ -16,6 +16,8 @@
     "commit": "cz",
     "build": "bun build --target=node --outdir=dist src/index.ts",
     "start": "node dist/index.js",
+    "test": "bun test",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/index.js",
     "secretlint": "secretlint",
     "commitlint": "commitlint",
     "devmoji": "devmoji"

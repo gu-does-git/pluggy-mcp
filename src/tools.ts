@@ -1,8 +1,16 @@
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { pluggyRequest, ok } from "./pluggy-client";
+import {
+  createPluggyClient,
+  type PluggyClient,
+} from "./pluggy-client.js";
 
-export function registerTools(server: McpServer) {
+export function registerTools(
+  server: McpServer,
+  client?: PluggyClient
+) {
+  const { pluggyRequest, ok } = client ?? createPluggyClient();
+
   // ---------- connectors ----------
 
   server.tool(

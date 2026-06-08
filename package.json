@@ -1,0 +1,23 @@
+{
+  "name": "pluggy-mcp",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
+    "@secretlint/secretlint-rule-preset-recommend": "^13.0.2",
+    "@types/bun": "latest",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "devmoji": "^2.3.0",
+    "husky": "^9.1.7",
+    "secretlint": "^13.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "prepare": "husky"
+  }
+}

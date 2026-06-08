@@ -11,7 +11,6 @@ const EXPECTED_TOOLS = [
   "list_categories",
   "create_connect_token",
   "create_item",
-  "list_items",
   "get_item",
   "update_item",
   "delete_item",
@@ -25,7 +24,8 @@ const EXPECTED_TOOLS = [
 ];
 
 async function setupServer() {
-  const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair();
+  const [clientTransport, serverTransport] =
+    InMemoryTransport.createLinkedPair();
   const server = new McpServer({ name: "test", version: "0.0.0" });
   const client = createPluggyClient({ clientId: "t", clientSecret: "t" });
   registerTools(server, client);
@@ -39,10 +39,10 @@ async function setupServer() {
 }
 
 describe("tool registration", () => {
-  test("list_tools retorna 16 tools", async () => {
+  test("list_tools retorna 15 tools", async () => {
     const mcpClient = await setupServer();
     const { tools } = await mcpClient.listTools();
-    expect(tools.length).toBe(16);
+    expect(tools.length).toBe(15);
   });
 
   test("todas as tools têm nome e descrição non-empty", async () => {

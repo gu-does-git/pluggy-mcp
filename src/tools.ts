@@ -79,16 +79,6 @@ export function registerTools(
     async (args) => ok(await pluggyRequest("POST", "/items", { body: args }))
   );
 
-  server.tool(
-    "list_items",
-    "List bank connections (items) owned by the application. Pluggy endpoint: GET /items.",
-    {
-      clientUserId: z.string().optional().describe("Filter by client_user_id"),
-      page: z.number().int().optional(),
-      pageSize: z.number().int().optional(),
-    },
-    async (args) => ok(await pluggyRequest("GET", "/items", { query: args }))
-  );
 
   server.tool(
     "get_item",

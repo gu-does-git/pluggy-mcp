@@ -68,14 +68,16 @@ A Pluggy disponibiliza conectores sandbox (`Pluggy Bank`, `BR · Pluggy Bank`) q
 
 ## Créditos
 
-Este projeto é um fork estendido do [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-pluggy) (MIT), mantendo toda a funcionalidade original dos 16 tools MCP para a API Pluggy. Agradecimentos à [CodeSpar](https://codespar.dev) pelo trabalho base.
+Este projeto é um fork estendido do [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-pluggy) (MIT), mantendo toda a funcionalidade original dos 15 tools MCP para a API Pluggy. Agradecimentos à [CodeSpar](https://codespar.dev) pelo trabalho base.
+
+> **Observação:** A API Pluggy não possui endpoint para listar todos os items (`GET /items`). A tool `list_items` foi removida por não ser suportada.
 
 ### Extensões em relação ao original
 
 - `list_investments` — recupera todos os investimentos de um item (`GET /investments`)
 - `get_investment` — recupera um investimento específico por ID (`GET /investments/{id}`)
 
-## Funcionalidades Originais (16 tools)
+## Funcionalidades (15 tools)
 
 | Tool | Endpoint Pluggy | Descrição |
 |---|---|---|
@@ -84,7 +86,6 @@ Este projeto é um fork estendido do [`@codespar/mcp-pluggy`](https://www.npmjs.
 | `list_categories` | `GET /categories` | Taxonomia de categorias |
 | `create_connect_token` | `POST /connect_token` | Token para Pluggy Connect |
 | `create_item` | `POST /items` | Nova conexão bancária |
-| `list_items` | `GET /items` | Lista conexões |
 | `get_item` | `GET /items/{id}` | Detalhes de uma conexão |
 | `update_item` | `PATCH /items/{id}` | Atualiza credenciais/sync |
 | `delete_item` | `DELETE /items/{id}` | Revoga conexão |

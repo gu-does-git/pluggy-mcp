@@ -1,6 +1,6 @@
 # pluggy-mcp
 
-Servidor MCP para **Pluggy** — agregador Open Finance Brasil (ITP/TPP).
+Servidor MCP para **[Pluggy](https://pluggy.ai)** — agregador Open Finance Brasil (ITP/TPP).
 
 Baseado no [`@codespar/mcp-pluggy`](https://www.npmjs.com/package/@codespar/mcp-pluggy) por [CodeSpar](https://codespar.dev), estendido com funcionalidades adicionais.
 
